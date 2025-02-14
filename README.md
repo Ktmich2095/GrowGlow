@@ -67,8 +67,8 @@ Desarrollar e implementar un sistema IoT inteligente para el monitoreo en tiempo
 |Integrante|Contacto|Rol|
 |------------|--------|---|
 |Michelle Castro Otero |[@Ktmich2095](https://github.com/Ktmich2095)|Líder del equipo / Desarrollado BackEnd|
-|Sayurid Bautista Cruz|[@sayuridbc](https://github.com/sayuridbc)|  Desarrollador FrontEnd |
+|Sayurid Bautista Cruz|[@sayuridbc](https://github.com/sayuridbc)|  Desarrollador FrontEnd / Encargada de documentación |
 |Luis Daniel Suárez Escamilla |[@Danny88e](https://github.com/Danny88e)| Desarrollador en Base de Datos|
 |Uriel Maldonado Bernabé |[@Urii7895](https://github.com/Urii7895)| Responsable en IoT |
-|Daniel García Pluma |[@DanielGarciaPluma](https://github.com/DanielGarciaPluma)| Desarrollador en Documentación |
+|Daniel García Pluma |[@DanielGarciaPluma](https://github.com/DanielGarciaPluma)| Desarrollador en Base de datos e IoT |
 <hr>
