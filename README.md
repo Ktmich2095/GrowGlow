@@ -11,7 +11,7 @@
 
 ## Descripción del proyecto 
 <p align="justify">
-**GrowGlow** involucra una maceta inteligente diseñada para optimizar el cuidado de las plantas, específicamente flores claveles, en macetas en casa. Es un sistema IoT creado para facilitar la gestión y monitoreo de las condiciones del suelo en plantas de clavel. A través de sensores inteligentes, se optimizan los procesos de riego y manejo del suelo. Este sistema se visualiza y controla mediante una aplicación web que muestra en tiempo real el estado de la planta.
+** GrowGlow ** involucra una maceta inteligente diseñada para optimizar el cuidado de las plantas, específicamente flores claveles, en macetas en casa. Es un sistema IoT creado para facilitar la gestión y monitoreo de las condiciones del suelo en plantas de clavel. A través de sensores inteligentes, se optimizan los procesos de riego y manejo del suelo. Este sistema se visualiza y controla mediante una aplicación web que muestra en tiempo real el estado de la planta.
 </p>
 <hr>
 
