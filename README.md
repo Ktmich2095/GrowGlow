@@ -58,7 +58,7 @@ Desarrollar e implementar un sistema IoT inteligente para el monitoreo en tiempo
 
 ## Modelo canvas
 <p align="justify">
-<img src="gantt_page-0001.jpg" alt="gantt" width="100%" height="100%">
+<img src="./Business Model GrowGlow.png" alt="gantt" width="100%" height="100%">
 </p>
 <hr>
 
