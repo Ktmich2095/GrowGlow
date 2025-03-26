@@ -1,69 +1,93 @@
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly API_URL = 'http://localhost:5000/api/usuarios';
-  private readonly userKey = 'currentUser';
-  private readonly tokenKey = 'authToken';
-  private readonly userNameKey = 'userName'; // Nueva clave para el nombre
+  private readonly tokenKey = 'auth_token'; // Clave consistente
+  private readonly userNameKey = 'userName';
+
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private httpClient: HttpClient,
     private router: Router
   ) { }
 
+  private get isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
+
+  // Método para registro que puede ser usado desde el servicio
+  register(userData: any): Observable<any> {
+    return this.httpClient.post(`${this.API_URL}/register`, userData).pipe(
+      catchError(error => throwError(error))
+    );
+  }
+
   login(email: string, password: string): Observable<any> {
     return this.httpClient.post<any>(`${this.API_URL}/login`, { email, password }).pipe(
       tap(response => {
-        if (response.token) {
-          this.setToken(response.token);
-          localStorage.setItem('userName', response.user.nombre); // Guardar nombre al hacer login
-        } else {
-          console.warn('No se recibió token en la respuesta.');
+        if (response?.token && response?.usuario) {
+          this.setAuthData(response.token, response.usuario.nombre);
         }
-      })
+      }),
+      catchError(error => throwError(error))
     );
   }
-  
 
-  private setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
+  setAuthData(token: string, userName: string): void {
+    if (this.isBrowser) {
+      localStorage.setItem(this.tokenKey, token);
+      localStorage.setItem(this.userNameKey, userName);
+    }
   }
 
-  private setUser(user: any): void {
-    localStorage.setItem(this.userKey, JSON.stringify(user)); // Guardamos la info del usuario
+  setToken(token: string): void {
+    if (this.isBrowser) {
+      localStorage.setItem(this.tokenKey, token);
+    }
+  }
+
+  setCurrentUser(userName: string): void {
+    if (this.isBrowser) {
+      localStorage.setItem(this.userNameKey, userName);
+    }
   }
 
   getToken(): string | null {
-    return typeof window !== 'undefined' ? localStorage.getItem(this.tokenKey) : null;
+    return this.isBrowser ? localStorage.getItem(this.tokenKey) : null;
   }
-  
 
-  getUser(): { nombre: string } | null {
-    const userName = localStorage.getItem(this.userNameKey);
-    return userName ? { nombre: userName } : null;  // Retorna el nombre si existe, sino null
+  getUserName(): string | null {
+    return this.isBrowser ? localStorage.getItem(this.userNameKey) : null;
   }
 
   isAuthenticated(): boolean {
+    if (!this.isBrowser) return false;
+    
     const token = this.getToken();
     if (!token) return false;
     
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      return Date.now() < payload.exp * 1000;
+      return payload.exp * 1000 > Date.now();
     } catch (e) {
       return false;
     }
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
-    localStorage.removeItem(this.userKey); // Limpiar también la info del usuario
-    this.router.navigate(['/login']);
+    if (this.isBrowser) {
+      localStorage.removeItem(this.tokenKey);
+      localStorage.removeItem(this.userNameKey);
+      this.router.navigate(['/login']);
+    }
   }
 
   requestPasswordReset(email: string): Observable<any> {
