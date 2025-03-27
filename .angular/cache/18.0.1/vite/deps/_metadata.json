@@ -1,79 +1,109 @@
 {
-  "hash": "e3dc73d6",
-  "configHash": "91b4acc4",
-  "lockfileHash": "2ad41fe4",
-  "browserHash": "7ef98cb2",
+  "hash": "3c9e6f62",
+  "configHash": "c5fbd7fd",
+  "lockfileHash": "caf1fdcc",
+  "browserHash": "fe8c9316",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "20c11b04",
+      "fileHash": "d9ace240",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "8c7b2006",
+      "fileHash": "9b6e37b9",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "dc92866e",
+      "fileHash": "ff8c1a29",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "3b496e23",
+      "fileHash": "9f43543a",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "4ff348f6",
+      "fileHash": "13d346c0",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "3e88b056",
+      "fileHash": "88d2696d",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "a2c5feb5",
+      "fileHash": "24d7b8ef",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "175fbc75",
+      "fileHash": "59471287",
+      "needsInterop": false
+    },
+    "@amcharts/amcharts5": {
+      "src": "../../../../../node_modules/@amcharts/amcharts5/index.js",
+      "file": "@amcharts_amcharts5.js",
+      "fileHash": "83c8a919",
+      "needsInterop": false
+    },
+    "@amcharts/amcharts5/percent": {
+      "src": "../../../../../node_modules/@amcharts/amcharts5/percent.js",
+      "file": "@amcharts_amcharts5_percent.js",
+      "fileHash": "c56dd1a0",
+      "needsInterop": false
+    },
+    "@amcharts/amcharts5/themes/Animated": {
+      "src": "../../../../../node_modules/@amcharts/amcharts5/themes/Animated.js",
+      "file": "@amcharts_amcharts5_themes_Animated.js",
+      "fileHash": "1f04d0ba",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-RY4IRHRE": {
-      "file": "chunk-RY4IRHRE.js"
+    "chunk-ANZ2K3HS": {
+      "file": "chunk-ANZ2K3HS.js"
     },
-    "chunk-PTZJRHSL": {
-      "file": "chunk-PTZJRHSL.js"
+    "chunk-2KIQFDY2": {
+      "file": "chunk-2KIQFDY2.js"
     },
-    "chunk-LIGBAOPQ": {
-      "file": "chunk-LIGBAOPQ.js"
+    "chunk-PN7Z4X45": {
+      "file": "chunk-PN7Z4X45.js"
     },
-    "chunk-T4KMJRXW": {
-      "file": "chunk-T4KMJRXW.js"
+    "chunk-D7WTIK2W": {
+      "file": "chunk-D7WTIK2W.js"
     },
-    "chunk-G7BRAYMC": {
-      "file": "chunk-G7BRAYMC.js"
+    "chunk-26CBBU5A": {
+      "file": "chunk-26CBBU5A.js"
     },
-    "chunk-IBRCNHKK": {
-      "file": "chunk-IBRCNHKK.js"
+    "chunk-YQEJGD4R": {
+      "file": "chunk-YQEJGD4R.js"
     },
-    "chunk-DRTSWEXX": {
-      "file": "chunk-DRTSWEXX.js"
+    "chunk-TMZLRUPK": {
+      "file": "chunk-TMZLRUPK.js"
+    },
+    "chunk-43673NS3": {
+      "file": "chunk-43673NS3.js"
+    },
+    "chunk-S4LUNN6R": {
+      "file": "chunk-S4LUNN6R.js"
+    },
+    "chunk-7VQPY5UX": {
+      "file": "chunk-7VQPY5UX.js"
+    },
+    "chunk-GLLL6ZVE": {
+      "file": "chunk-GLLL6ZVE.js"
     }
   }
 }
