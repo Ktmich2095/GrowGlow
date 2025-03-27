@@ -37,7 +37,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.isLoading = true; // Activa el estado de carga
+    this.isLoading = true; 
     const newUser = { 
       nombre: this.name, 
       email: this.email, 
@@ -48,16 +48,15 @@ export class RegisterComponent {
       .subscribe({
         next: (response) => {
           console.log('Registro exitoso:', response);
-          console.log(response);
           if (response?.usuario) {
             this.authService.setToken(response.token);
             this.authService.setCurrentUser(response.usuario.nombre);
             
             this.ngZone.run(() => {
-              alert('¡Registro exitoso! Serás redirigido al dashboard.');
+              alert('¡Registro exitoso! Serás redirigido al inicio de sesión.');
               
               setTimeout(() => {
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/login']);
               }, 200);
             });
           } else {

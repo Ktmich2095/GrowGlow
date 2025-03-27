@@ -7,7 +7,19 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./shared/components/layout/layout.component'),
     children: [
-      { path: 'dashboard', loadComponent: () => import('./business/dashboard/dashboard.component'), canActivate: [AuthGuard] },
+      { path: 'dashboard',
+        loadComponent: () => import('./business/dashboard/dashboard.component'),
+        canActivate: [AuthGuard],
+        children:[
+          { path: 'monitoreo', loadComponent: () => import('./business/monitoreo/monitoreo.component').then(m=>m.MonitoreoComponent) },
+          { path: 'descripcion', loadComponent: () => import('./business/descripcion/descripcion.component').then(m => m.DescripcionComponent) },
+          { path: 'logros', loadComponent: () => import('./business/logros/logros.component').then(m => m.LogrosComponent) },
+          { path: 'perfil', loadComponent:()=>import('./business/profile/profile.component') },
+          { path: '', redirectTo: 'monitoreo', pathMatch: 'full' },
+
+        ]
+        
+      },
       { path: 'profile', loadComponent: () => import('./business/profile/profile.component'), canActivate: [AuthGuard] },
       { path: 'tables', loadComponent: () => import('./business/tables/tables.component'), canActivate: [AuthGuard] },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
@@ -33,5 +45,5 @@ export const routes: Routes = [
     loadComponent: () => import('./business/authentication/reset-password/reset-password.component').then(m => m.ResetPasswordComponent)
   },
 
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'login', pathMatch:'full' }
 ];
