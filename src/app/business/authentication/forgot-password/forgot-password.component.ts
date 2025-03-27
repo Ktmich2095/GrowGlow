@@ -34,22 +34,19 @@ export class ForgotPasswordComponent {
     this.isError = false;
   
     this.authService.requestPasswordReset(this.email).subscribe({
-      next: (response) => {
-        if (response.success) {
-          this.showMessage(response.message);
-        } else {
-          this.showMessage(response.message, true);
-        }
+      next: (response: any) => {
+        this.showMessage(response.message || 'Se han enviado las instrucciones a tu correo');
+        this.isLoading = false;
       },
       error: (error) => {
-        this.showMessage('No existe una cuenta vinculada con el correo proporcionado', true);
-      },
-      complete: () => {
+        console.error('Error completo:', error);
+        const errorMessage = error.error?.message || 
+                           'Ocurrió un error al procesar tu solicitud. Intenta nuevamente.';
+        this.showMessage(errorMessage, true);
         this.isLoading = false;
       }
     });
   }
-
   goToLogin(): void {
     this.router.navigate(['/login']);
   }

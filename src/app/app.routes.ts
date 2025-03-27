@@ -11,6 +11,8 @@ export const routes: Routes = [
       { path: 'dashboard', loadComponent: () => import('./business/dashboard/dashboard.component'),data: { breadcrumb: 'Dashboard' }},
       { path: 'descripcion', loadComponent: () => import('./business/descripcion/descripcion.component').then(m => m.DescripcionComponent),data: { breadcrumb: 'Descripción' } },
       { path: 'logros', loadComponent: () => import('./business/logros/logros.component').then(m => m.LogrosComponent),data: { breadcrumb: 'Mis Logros' } },
+      {path:'perfil',loadComponent:()=>import ('./business/profile/profile.component').then(m => m.default)},
+      {path:'configuracion',loadComponent:()=>import ('./business/tables/tables.component')},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

@@ -63,6 +63,20 @@ export class AuthService {
   getToken(): string | null {
     return this.isBrowser ? localStorage.getItem(this.tokenKey) : null;
   }
+  getUsuarioId(): string | null {
+    if (!this.isBrowser) return null;
+    
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.id || null; // Asume que el payload del token incluye el ID del usuario como 'id'
+    } catch (e) {
+      console.error('Error al decodificar el token:', e);
+      return null;
+    }
+  }
 
   getUserName(): string | null {
     return this.isBrowser ? localStorage.getItem(this.userNameKey) : null;
@@ -100,5 +114,12 @@ export class AuthService {
 
   resetPassword(email: string, password: string): Observable<any> {
     return this.httpClient.post(`${this.API_URL}/reset-password`, { email, password });
+  }
+  getRachaByUsuario(usuarioId: string) {
+    return this.httpClient.get(`${this.API_URL}/${usuarioId}/racha`);
+  }
+
+  actualizarActividad(usuarioId: string) {
+    return this.httpClient.put(`${this.API_URL}/${usuarioId}/racha`, {});
   }
 }
